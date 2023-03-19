@@ -13,14 +13,14 @@ for (int a = '0';a<='9';a++)
   {
     if(b!=a)
     {
-      putchar(a)
-      putchar(b)
-      putchar(',')
-      putchar(' ')
+      putchar(a);
+      putchar(b);
+      putchar(',');
+      putchar(' ');
       }
   }
 }
-  putchar('/n')
+  putchar('/n');
 }
 return (0);
 }
