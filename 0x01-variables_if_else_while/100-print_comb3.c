@@ -7,28 +7,20 @@
 **/
 int main(void)
 {
-int a = '0';
-int b;
-
-while (a <= '9')
+for (a = "0";a<=9;a++)
 {
-b = a + 1;
-while (b <= '9')
-{
-putchar(a);
-putchar(b);
-if (a == '8' && b == '9')
-{
-putchar('\n');
+  for(b="0";b<=9;b++)
+  {
+    if(b!=a)
+    {
+      putchar(a)
+      putchar(b)
+      putchar(',')
+      putchar(' ')
+      }
+  }
 }
-else
-{
-putchar(',');
-putchar(' ');
-}
-b++;
-}
-a++;
+  putchar('/n')
 }
 return (0);
 }
