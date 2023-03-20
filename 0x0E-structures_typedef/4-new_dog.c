@@ -1,80 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "dog.h"
-
-
 /**
-*_strlen - returns length of
-*a string
-*@str: string to be counted
-*Return: returns length of string
-*/
-int _strlen(char *str)
-{
-int len = 0;
-while (str)
-len++;
-
-return (len);
-}
-
-
-/**
-*_strcopy - copy string pointed by src
-*into dest variable
-*@dest:buffer storing string copy
-*@src: buffer storing string to copy
-*Return:returns copied string
-*/
-char *_strcopy(char *dest, char *src)
-{
-int index = 0;
-
-for (; src[index] ; index++)
-dest[index] = src[index];
-
-dest[index] = '\0';
-return (dest);
-}
-
-
-
-
-/**
-*new_dog - creates a new dog
-*@name: name of new dog
-*@age: age of new dog
-*@owner: owner of new dog
-*Return: returns NULL in case
-*of failure
-*/
+ * new_dog - creates a new dog
+ *
+ * @name: pointer to a variable to copy
+ * @owner: pointer to a variable to copy
+ * @age: float variable type
+ *
+ * Return: to dog_t or NULL if it fail
+ */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-dog_t *doggo;
+	/* dog_t is the new name of dog */
+	/* two variables to know the size of the variables I need to copy */
+	int namerunner, ownerrunner;
+	/* allocate the *new_dog function and test if is null or not */
+	dog_t *new_dog = malloc(sizeof(dog_t));
 
-if (name == NULL || age < 0 || owner == NULL)
-return (NULL);
-
-doggo = malloc(sizeof(dog_t));
-if (doggo == NULL)
-return (NULL);
-
-doggo->name = malloc(sizeof(char) * (_strlen(name) + 1));
-if (doggo->name == NULL)
-{
-free(doggo);
-return (NULL);
-}
-
-doggo->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
-if (doggo->owner == NULL)
-{
-free(doggo->name);
-free(doggo);
-return (NULL);
-}
-
-doggo->name = _strcopy(doggo->name, name);
-doggo->age = age;
-doggo->owner = _strcopy(doggo->owner, owner);
-
-return (doggo);
+	if (new_dog == NULL)
+		return (new_dog);
+	/* time to know the size of the *name and *owner */
+	for (namerunner = 0; name[namerunner]; namerunner++)
+	{
+	}
+	for (ownerrunner = 0; owner[ownerrunner]; ownerrunner++)
+	{
+	}
+	/* Add in new_dog the size of the variables name and owner */
+	/* dereference new_dog to each of the variables */
+	/* plus 1 to the runners because I need to save space for \0 too */
+	new_dog->name = malloc((namerunner + 1) * sizeof(char));
+	new_dog->owner = malloc((ownerrunner + 1) * sizeof(char));
+	/*check allocation was right if NULL free all the allocated memory*/
+	/* we freed memory from what is inside to the big function new_dog */
+	if (new_dog->name == NULL || new_dog->owner == NULL)
+	{
+		free(new_dog->name);
+		free(new_dog->owner);
+		free(new_dog);
+		return (NULL);
+	}
+	/* once I have the memory allocated */
+	/* I start copying the variables to the malloc pointer *new_dog */
+	for (namerunner = 0; name[namerunner]; namerunner++)
+		new_dog->name[namerunner] = name[namerunner];
+	for (ownerrunner = 0; owner[ownerrunner]; ownerrunner++)
+		new_dog->owner[ownerrunner] = owner[ownerrunner];
+	/* now I set them to zero so the function return the output I need */
+	new_dog->name[namerunner] = 0;
+	new_dog->owner[ownerrunner] = 0;
+	new_dog->age = age;
+	return (new_dog);
 }
