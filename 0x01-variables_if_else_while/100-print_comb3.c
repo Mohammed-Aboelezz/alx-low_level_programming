@@ -7,21 +7,31 @@
 **/
 int main(void)
 {
-for (int a = '0';a<='9';a++)
-{
-  for(int b='0';b<='9';b++)
-  {
-    if(b!=a)
-    {
-      putchar(a);
-      putchar(b);
-      putchar(',');
-      putchar(' ');
-      }
-    else
-  }
-}
-  putchar('/n');
+int i = '0';
+	int j = '0';
+
+	while (i <= '9')
+	{
+		while (j <= '9')
+		{
+			if (!(i > j || i == j))
+			{
+				putchar(i);
+				putchar(j);
+				if (i == '8' && j == '9')
+				{
+					putchar('\n');
+				}
+				else
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
+			j++;
+		}
+		j = '0';
+		i++;
 }
 return (0);
 }
