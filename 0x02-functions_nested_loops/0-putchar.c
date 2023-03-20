@@ -6,7 +6,15 @@
  */
 int main(void)
 {
-	printf("%s/n,_putchar/n");
+	char school[10] = "_putchar";
+
+	int i;
+
+	for (i = 0; i < 8; i++)
+	{
+		_putchar(school[i]);
+	}
+	_putchar(10);
 
 	return (0);
 }
