@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	printf("_putchar/n");
+	printf("%s/n,_putchar/n");
 
 	return (0);
 }
