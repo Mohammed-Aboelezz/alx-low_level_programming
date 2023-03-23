@@ -5,6 +5,7 @@
  * Return: absolute value of @n
  */
 int _abs(int n)
-{
-	return(abs(n));
+{	
+	int b = abs(n);
+	return(b);
 }
